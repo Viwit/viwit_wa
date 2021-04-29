@@ -1,0 +1,34 @@
+<div>
+  <CRow>
+    <CCol sm="12" md="8" >
+      <CCard>
+        <CCardHeader>
+          <strong>Editar </strong><small>Conductor</small>
+        </CCardHeader>
+        <CCardBody>
+          <CRow>
+            <CCol sm="4">
+              <CInput v-model="model.driversLicense" label="Licencia" placeholder="Licencia" readonly/>
+            </CCol>
+            <CCol sm="8">
+              <CInput v-model="model.name" label="Nombre" />
+            </CCol>
+          </CRow>
+          
+          <CRow>
+            <CCol sm="6">
+              <CInput v-model="model.driverExperience" label="Experiencia" />
+            </CCol>
+            <CCol sm="6">
+              <CInput v-model="model.averageDriverRating" label="Calificacion Promedio" readonly/>
+            </CCol>
+          </CRow>
+        </CCardBody>
+        <CCardFooter>
+          <CButton @click="sendEdit" class="mr-2" size="sm" color="primary"><CIcon name="cil-check-circle"/> Guardar Cambios</CButton>
+          <CButton @click="sendDelete" size="sm" color="danger"><CIcon name="cil-ban"/> Eliminar</CButton>
+        </CCardFooter>
+      </CCard>
+    </CCol>
+  </CRow>
+</div>
