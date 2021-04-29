@@ -1,0 +1,35 @@
+<div>
+  <CRow>
+    <CCol sm="12" md="8" >
+      <CCard>
+        <CCardHeader>
+          <strong>Editar </strong><small>Ruta</small>
+        </CCardHeader>
+        <CCardBody>
+          <CRow>
+            <CCol sm="4">
+              <CInput v-model="model.idRoute" label="Id" placeholder="Id" readonly/>
+            </CCol>
+            <CCol sm="8">
+              <CInput v-model="model.nameRoute" label="Nombre" />
+            </CCol>
+          </CRow>
+          
+          <CRow>
+            <CCol sm="6">
+              <CInput v-model="model.initialBusStop" label="Parada Inicial" />
+            </CCol>
+            <CCol sm="6">
+              <CInput v-model="model.finalBusStop" label="Parada Final"/>
+            </CCol>
+          </CRow>
+          <CInput v-model="model.approximateDuration" label="Duracion Aproximada"/> 
+        </CCardBody>
+        <CCardFooter>
+          <CButton @click="sendEdit" class="mr-2" size="sm" color="primary"><CIcon name="cil-check-circle"/> Guardar Cambios</CButton>
+          <CButton @click="sendDelete" size="sm" color="danger"><CIcon name="cil-ban"/> Eliminar</CButton>
+        </CCardFooter>
+      </CCard>
+    </CCol>
+  </CRow>
+</div>
