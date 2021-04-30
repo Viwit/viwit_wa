@@ -5,10 +5,21 @@ import Router from 'vue-router';
 const TheContainer = () => import('@/containers/TheContainer');
 
 // Views
-const Dashboard = () => import('@/views/Dashboard');
 
+const Dashboard = () => import('@/views/Dashboard')
+const Drivers = () => import('@/views/Drivers')
 const EditRoute = () => import('@/views/EditRoute');
 const EditDriver = () => import('@/views/EditDriver');
+
+
+//Auth
+
+const Login = () => import('@/views/Auth/Login');
+const Register = () => import('@/views/Auth/Register');
+
+//Template Elements
+
+const TemplateDashboard = () => import('@/views/TemplateDashboard');
 
 const Colors = () => import('@/views/theme/Colors');
 const Typography = () => import('@/views/theme/Typography');
@@ -53,8 +64,7 @@ const Modals = () => import('@/views/notifications/Modals');
 // Views - Pages
 const Page404 = () => import('@/views/pages/Page404');
 const Page500 = () => import('@/views/pages/Page500');
-const Login = () => import('@/views/pages/Login');
-const Register = () => import('@/views/pages/Register');
+
 
 // Users
 const Users = () => import('@/views/users/Users');
@@ -72,8 +82,8 @@ export default new Router({
 function configRoutes() {
   return [
     {
-      path: '/',
-      redirect: '/dashboard',
+      path: '/admin',
+      redirect: '/admin/template-dashboard',
       name: 'Home',
       component: TheContainer,
       children: [
@@ -81,6 +91,11 @@ function configRoutes() {
           path: 'dashboard',
           name: 'Dashboard',
           component: Dashboard,
+        },
+        {
+          path: 'drivers',
+          name: 'Drivers',
+          component: Drivers,
         },
         {
           path: 'edit',
@@ -103,6 +118,11 @@ function configRoutes() {
               component: EditDriver,
             },
           ],
+        },
+        {
+          path: 'template-dashboard',
+          name: 'TemplateDashboard',
+          component: TemplateDashboard,
         },
         {
           path: 'theme',
@@ -343,9 +363,9 @@ function configRoutes() {
       ],
     },
     {
-      path: '/pages',
-      redirect: '/pages/404',
-      name: 'Pages',
+      path: '/',
+      redirect: '/login',
+      name: 'Auth',
       component: {
         render(c) {
           return c('router-view');

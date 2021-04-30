@@ -3,9 +3,41 @@ export default [
     _name: 'CSidebarNav',
     _children: [
       {
+        _name: 'CSidebarNavTitle',
+        _children: ['Viwit']
+      },
+      {
         _name: 'CSidebarNavItem',
         name: 'Dashboard',
-        to: '/dashboard',
+        to: '/admin/dashboard',
+        icon: 'cil-speedometer'
+      },
+      {
+        _name: 'CSidebarNavItem',
+        name: 'Drivers',
+        to: '/admin/drivers',
+        icon: 'cil-speedometer'
+      },
+      {
+        _name: 'CSidebarNavItem',
+        name: 'Edit Route',
+        to: '/admin/edit/route',
+        icon: 'cil-pencil'
+      },
+      {
+        _name: 'CSidebarNavItem',
+        name: 'Edit Driver',
+        to: '/admin/edit/driver',
+        icon: 'cil-pencil'
+      },
+      {
+        _name: 'CSidebarNavTitle',
+        _children: ['Template Elements']
+      },
+      {
+        _name: 'CSidebarNavItem',
+        name: 'Template Dashboard',
+        to: '/admin/template-dashboard',
         icon: 'cil-speedometer',
         badge: {
           color: 'primary',
@@ -19,13 +51,13 @@ export default [
       {
         _name: 'CSidebarNavItem',
         name: 'Colors',
-        to: '/theme/colors',
+        to: '/admin/theme/colors',
         icon: 'cil-drop'
       },
       {
         _name: 'CSidebarNavItem',
         name: 'Typography',
-        to: '/theme/typography',
+        to: '/admin/theme/typography',
         icon: 'cil-pencil'
       },
       {
@@ -40,67 +72,67 @@ export default [
         items: [
           {
             name: 'Breadcrumbs',
-            to: '/base/breadcrumbs'
+            to: '/admin/base/breadcrumbs'
           },
           {
             name: 'Cards',
-            to: '/base/cards'
+            to: '/admin/base/cards'
           },
           {
             name: 'Carousels',
-            to: '/base/carousels'
+            to: '/admin/base/carousels'
           }, 
           {
             name: 'Collapses',
-            to: '/base/collapses'
+            to: '/admin/base/collapses'
           },
           {
             name: 'Forms',
-            to: '/base/forms'
+            to: '/admin/base/forms'
           },
           {
             name: 'Jumbotrons',
-            to: '/base/jumbotrons'
+            to: '/admin/base/jumbotrons'
           },
           {
             name: 'List Groups',
-            to: '/base/list-groups'
+            to: '/admin/base/list-groups'
           },
           {
             name: 'Navs',
-            to: '/base/navs'
+            to: '/admin/base/navs'
           },
           {
             name: 'Navbars',
-            to: '/base/navbars'
+            to: '/admin/base/navbars'
           },
           {
             name: 'Paginations',
-            to: '/base/paginations'
+            to: '/admin/base/paginations'
           },
           {
             name: 'Popovers',
-            to: '/base/popovers'
+            to: '/admin/base/popovers'
           },
           {
             name: 'Progress Bars',
-            to: '/base/progress-bars'
+            to: '/admin/base/progress-bars'
           },
           {
             name: 'Switches',
-            to: '/base/switches'
+            to: '/admin/base/switches'
           },
           {
             name: 'Tables',
-            to: '/base/tables'
+            to: '/admin/base/tables'
           },
           {
             name: 'Tabs',
-            to: '/base/tabs'
+            to: '/admin/base/tabs'
           },
           {
             name: 'Tooltips',
-            to: '/base/tooltips'
+            to: '/admin/base/tooltips'
           }
         ]
       },
@@ -112,26 +144,26 @@ export default [
         items: [
           {
             name: 'Buttons',
-            to: '/buttons/standard-buttons'
+            to: '/admin/buttons/standard-buttons'
           },
           {
             name: 'Button Dropdowns',
-            to: '/buttons/dropdowns'
+            to: '/admin/buttons/dropdowns'
           },
           {
             name: 'Button Groups',
-            to: '/buttons/button-groups'
+            to: '/admin/buttons/button-groups'
           },
           {
             name: 'Brand Buttons',
-            to: '/buttons/brand-buttons'
+            to: '/admin/buttons/brand-buttons'
           }
         ]
       },
       {
         _name: 'CSidebarNavItem',
         name: 'Charts',
-        to: '/charts',
+        to: '/admin/charts',
         icon: 'cil-chart-pie'
       },
       {
@@ -142,7 +174,7 @@ export default [
         items: [
           {
             name: 'CoreUI Icons',
-            to: '/icons/coreui-icons',
+            to: '/admin/icons/coreui-icons',
             badge: {
               color: 'info',
               text: 'NEW'
@@ -150,11 +182,11 @@ export default [
           },
           {
             name: 'Brands',
-            to: '/icons/brands'
+            to: '/admin/icons/brands'
           },
           {
             name: 'Flags',
-            to: '/icons/flags'
+            to: '/admin/icons/flags'
           }
         ]
       },
@@ -166,22 +198,22 @@ export default [
         items: [
           {
             name: 'Alerts',
-            to: '/notifications/alerts'
+            to: '/admin/notifications/alerts'
           },
           {
             name: 'Badges',
-            to: '/notifications/badges'
+            to: '/admin/notifications/badges'
           },
           {
             name: 'Modals',
-            to: '/notifications/modals'
+            to: '/admin/notifications/modals'
           }
         ]
       },
       {
         _name: 'CSidebarNavItem',
         name: 'Widgets',
-        to: '/widgets',
+        to: '/admin/widgets',
         icon: 'cil-calculator',
         badge: {
           color: 'primary',
@@ -200,24 +232,24 @@ export default [
       {
         _name: 'CSidebarNavDropdown',
         name: 'Pages',
-        route: '/pages',
+        route: '/',
         icon: 'cil-star',
         items: [
           {
             name: 'Login',
-            to: '/pages/login'
+            to: '/login'
           },
           {
             name: 'Register',
-            to: '/pages/register'
+            to: '/register'
           },
           {
             name: 'Error 404',
-            to: '/pages/404'
+            to: '/404'
           },
           {
             name: 'Error 500',
-            to: '/pages/500'
+            to: '/500'
           }
         ]
       },
