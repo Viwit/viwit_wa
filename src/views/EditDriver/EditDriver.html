@@ -13,13 +13,13 @@
               <CInput v-model="model.driversLicense" label="Licencia" placeholder="Licencia" :readonly="editMode"/>
             </CCol>
             <CCol sm="8">
-              <CInput v-model="model.name" label="Nombre" />
+              <CInput v-model="model.name" label="Nombre" placeholder="Nombre" />
             </CCol>
           </CRow>
           
           <CRow>
             <CCol sm="6">
-              <CInput v-model="model.driverExperience" label="Experiencia" />
+              <CInput v-model="model.driverExperience" label="Experiencia" type="number" placeholder="Experiencia"/>
             </CCol>
             <CCol sm="6">
               <CInput v-model="model.averageDriverRating" label="Calificacion Promedio" readonly/>
@@ -27,8 +27,14 @@
           </CRow>
         </CCardBody>
         <CCardFooter>
-          <CButton @click="sendEdit" class="mr-2" size="sm" color="primary"><CIcon name="cil-check-circle"/> Guardar Cambios</CButton>
-          <CButton @click="sendDelete" size="sm" color="danger"><CIcon name="cil-ban"/> Eliminar</CButton>
+          <template v-if="editMode">
+            <CButton @click="sendEdit" class="mr-2" size="sm" color="primary" ><CIcon name="cil-check-circle"/> Guardar Cambios</CButton>
+            <CButton @click="sendDelete" size="sm" color="danger" :disabled="!formFilled"><CIcon name="cil-ban"/> Eliminar</CButton>
+          </template>
+          <template v-else>
+            <CButton @click="sendCreate" class="mr-2" size="sm" color="primary" :disabled="!formFilled"><CIcon name="cil-check-circle"/> Crear</CButton>
+          </template>
+          
         </CCardFooter>
       </CCard>
     </CCol>

@@ -32,10 +32,10 @@ export default {
         });
     },
     addDriver(){
-      this.$router.push('admin/edit/driver?createMode=true')
+      this.$router.push('edit/driver?createMode=true')
     },
     editDriver(driver) {      
-      this.$router.push(`/admin/edit/driver?driversLicense=${driver.driversLicense}`);
+      this.$router.push(`edit/driver?driversLicense=${driver.driversLicense}`);
     },
     deleteDriver(driver) {
       axios
