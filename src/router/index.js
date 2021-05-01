@@ -12,6 +12,7 @@ const DriverList = () => import('@/views/DriverList')
 const RouteList = () => import('@/views/RouteList')
 const BusList = () => import('@/views/BusList')
 const UserList = () => import('@/views/UserList')
+const TableKind = () => import('@/views/TablesEntities/Tables')
 
 
 const EditRoute = () => import('@/views/EditRoute');
@@ -99,6 +100,11 @@ function configRoutes() {
           component: Dashboard,
         },
         {
+          path: 'table-kind',
+          name: 'TableKind',
+          component: TableKind,
+        },
+        {
           path: 'drivers',
           name: 'DriverList',
           component: DriverList,
@@ -118,6 +124,7 @@ function configRoutes() {
           name: 'BusList',
           component: BusList,
         },
+        
         {
           path: 'edit',
           redirect: '/edit/route',
