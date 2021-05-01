@@ -7,7 +7,14 @@ const TheContainer = () => import('@/containers/TheContainer');
 // Views
 
 const Dashboard = () => import('@/views/Dashboard')
-const Drivers = () => import('@/views/Drivers')
+
+const DriverList = () => import('@/views/DriverList')
+const RouteList = () => import('@/views/RouteList')
+const BusList = () => import('@/views/BusList')
+const UserList = () => import('@/views/UserList')
+const TableKind = () => import('@/views/TablesEntities/Tables')
+
+
 const EditRoute = () => import('@/views/EditRoute');
 const EditDriver = () => import('@/views/EditDriver');
 const Credit = () => import('@/views/Credit');
@@ -93,10 +100,31 @@ function configRoutes() {
           component: Dashboard,
         },
         {
-          path: 'drivers',
-          name: 'Drivers',
-          component: Drivers,
+          path: 'table-kind',
+          name: 'TableKind',
+          component: TableKind,
         },
+        {
+          path: 'drivers',
+          name: 'DriverList',
+          component: DriverList,
+        },
+        {
+          path: 'routes',
+          name: 'RouteList',
+          component: RouteList,
+        },
+        {
+          path: 'users',
+          name: 'UserList',
+          component: UserList,
+        },
+        {
+          path: 'buses',
+          name: 'BusList',
+          component: BusList,
+        },
+        
         {
           path: 'edit',
           redirect: '/edit/route',

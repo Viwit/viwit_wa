@@ -1,0 +1,18 @@
+<div>
+  <CCard>
+    <CCardBody>
+      <EntityTable
+        :items="items"
+        kind="conductores"
+        hover
+        border
+        striped
+        small
+        fixed
+        caption="Conductores"
+        @edit="editDriver"
+        @erase="deleteDriver"
+      />
+    </CCardBody>
+  </CCard>
+</div>
