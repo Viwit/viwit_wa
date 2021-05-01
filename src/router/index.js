@@ -12,7 +12,6 @@ const EditRoute = () => import('@/views/EditRoute');
 const EditDriver = () => import('@/views/EditDriver');
 const Credit = () => import('@/views/Credit');
 
-
 //Auth
 
 const Login = () => import('@/views/Auth/Login');
