@@ -31,6 +31,9 @@ export default {
           console.log(err);
         });
     },
+    addDriver(){
+      this.$router.push('admin/edit/driver?createMode=true')
+    },
     editDriver(driver) {      
       this.$router.push(`/admin/edit/driver?driversLicense=${driver.driversLicense}`);
     },
@@ -47,9 +50,3 @@ export default {
     },
   },
 };
-
-
-// "driversLicense": "JJS639",
-//       "name": "juuan",
-//       "driverExperience": 2,
-//       "averageDriverRating": "3"

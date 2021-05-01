@@ -17,6 +17,9 @@ const TableKind = () => import('@/views/TablesEntities/Tables')
 
 const EditRoute = () => import('@/views/EditRoute');
 const EditDriver = () => import('@/views/EditDriver');
+const EditUser = () => import('@/views/EditUser');
+const EditBus = () => import('@/views/EditBus');
+
 const Credit = () => import('@/views/Credit');
 
 //Auth
@@ -144,6 +147,16 @@ function configRoutes() {
               path: 'driver',
               name: 'EditDriver',
               component: EditDriver,
+            },
+            {
+              path: 'bus',
+              name: 'EditBus',
+              component: EditBus,
+            },
+            {
+              path: 'user',
+              name: 'EditUser',
+              component: EditUser,
             },
           ],
         },
