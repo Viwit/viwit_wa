@@ -11,6 +11,8 @@ const Drivers = () => import('@/views/Drivers')
 const EditRoute = () => import('@/views/EditRoute');
 const EditDriver = () => import('@/views/EditDriver');
 
+// Score
+const Score_Graphics = () => import('@/views/Score/Graphics/index.vue')
 
 //Auth
 
@@ -391,6 +393,11 @@ function configRoutes() {
           path: 'register',
           name: 'Register',
           component: Register,
+        },
+        {
+          path: 'Score-Graphics',
+          name: 'Score',
+          component: Score_Graphics,
         },
       ],
     },
