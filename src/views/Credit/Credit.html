@@ -1,0 +1,62 @@
+<div id="credit-container" class="p-1">
+  <CRow>
+    <CCol>
+          <div id="viwit-jumbo">
+            <h1 class="display-3">Recarga Viwit</h1>
+            <p class="lead">
+              Recarga dinero a tu billetera para poder disfrutar de los servicios
+              que se ofrecen mediante nuestra aplicacion
+            </p>
+            <hr class="my-4">
+            <p class="mb-5">
+              Puedes escoger entre diferentes metodos de pago
+            </p>
+          </div>
+       
+    </CCol>
+  </CRow>
+  <CRow class="justify-content-center">
+    <CCol xs="12" sm="8" md="6" lg="5">
+      <CCard id="credit-form">
+        <CCardHeader class="credit-color">
+          <strong>Cargar Dinero</strong> Billetera
+        </CCardHeader>
+        <CCardBody>
+          <CForm id="main-form">
+            <CInput
+              label="Email "
+              placeholder="Enter your email"
+              type="email"
+              horizontal
+              autocomplete="email"
+            />
+            <CInput
+              label="Nombre de usuario"
+              placeholder="Nombre de usuario"
+              horizontal
+              autocomplete="name"
+            />
+            <CInput
+              label="Cantidad"
+              horizontal
+              placeholder="ej. $10.000"
+              append="cop"
+              type="number"
+            >
+              <template #prepend-content><CIcon name="cil-dollar"/></template>
+            </CInput>
+            <CSelect
+              label="Medio de pago"
+              horizontal
+              :options="options"
+              placeholder="Please select"
+            />           
+          </CForm>
+        </CCardBody>
+        <CCardFooter class="text-right credit-color">
+          <CButton id="pay-button" class="py-3 px-5" type="submit" size="sm"> Continuar</CButton>
+        </CCardFooter>
+      </CCard>
+    </CCol>
+  </CRow>
+</div>
