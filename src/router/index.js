@@ -7,7 +7,13 @@ const TheContainer = () => import('@/containers/TheContainer');
 // Views
 
 const Dashboard = () => import('@/views/Dashboard')
-const Drivers = () => import('@/views/Drivers')
+
+const DriverList = () => import('@/views/DriverList')
+const RouteList = () => import('@/views/RouteList')
+const BusList = () => import('@/views/BusList')
+const UserList = () => import('@/views/UserList')
+
+
 const EditRoute = () => import('@/views/EditRoute');
 const EditDriver = () => import('@/views/EditDriver');
 const Credit = () => import('@/views/Credit');
@@ -94,8 +100,23 @@ function configRoutes() {
         },
         {
           path: 'drivers',
-          name: 'Drivers',
-          component: Drivers,
+          name: 'DriverList',
+          component: DriverList,
+        },
+        {
+          path: 'routes',
+          name: 'RouteList',
+          component: RouteList,
+        },
+        {
+          path: 'users',
+          name: 'UserList',
+          component: UserList,
+        },
+        {
+          path: 'buses',
+          name: 'BusList',
+          component: BusList,
         },
         {
           path: 'edit',

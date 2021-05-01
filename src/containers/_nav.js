@@ -10,13 +10,31 @@ export default [
         _name: 'CSidebarNavItem',
         name: 'Dashboard',
         to: '/admin/dashboard',
-        icon: 'cil-speedometer'
+        icon: 'cil-star'
       },
       {
         _name: 'CSidebarNavItem',
         name: 'Drivers',
         to: '/admin/drivers',
-        icon: 'cil-speedometer'
+        icon: 'cil-puzzle'
+      },
+      {
+        _name: 'CSidebarNavItem',
+        name: 'Routes',
+        to: '/admin/routes',
+        icon: 'cil-puzzle'
+      },
+      {
+        _name: 'CSidebarNavItem',
+        name: 'Buses',
+        to: '/admin/buses',
+        icon: 'cil-puzzle'
+      },
+      {
+        _name: 'CSidebarNavItem',
+        name: 'Users',
+        to: '/admin/users',
+        icon: 'cil-puzzle'
       },
       {
         _name: 'CSidebarNavItem',
