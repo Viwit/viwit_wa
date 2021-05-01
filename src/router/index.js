@@ -10,6 +10,7 @@ const Dashboard = () => import('@/views/Dashboard')
 const Drivers = () => import('@/views/Drivers')
 const EditRoute = () => import('@/views/EditRoute');
 const EditDriver = () => import('@/views/EditDriver');
+const Credit = () => import('@/views/Credit');
 
 // Score
 const Score_Graphics = () => import('@/views/Score/Graphics/index.vue')
@@ -361,6 +362,23 @@ function configRoutes() {
               component: Modals,
             },
           ],
+        },
+      ],
+    },
+    {
+      path: '/client',
+      redirect: '/client/credit',
+      name: 'Client',
+      component: {
+        render(c) {
+          return c('router-view');
+        },
+      },
+      children: [
+        {
+          path: 'credit',
+          name: 'Credit',
+          component: Credit,
         },
       ],
     },

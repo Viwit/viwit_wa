@@ -12,15 +12,20 @@ export default {
       },
     };
   },
+  created(){
+    this.getData()
+  },
   methods: {
     getData() {
       axios
-        .post('')
+        .post('graphql',{
+          query: "{getAllDriver{driversLicense name driverExperience averageDriverRating}}"
+        })
         .then((res) => {
-
+          console.log(res.data);
         })
         .catch((err) => {
-          
+          console.log(err)
         });
     },
     sendEdit() {
