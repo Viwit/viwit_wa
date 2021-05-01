@@ -3,8 +3,8 @@
     <CRow>
       <CCol lg="12">
         <CTableWrapper
-          :items="data(kind)"
-          :fields="cabecera(kind)"
+          :items="items"
+          :kind="kind"
           hover
           striped
           border
