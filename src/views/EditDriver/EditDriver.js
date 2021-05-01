@@ -17,12 +17,14 @@ export default {
   },
   methods: {
     getData() {
+      const driversLicense = this.$route.query.driversLicense;
       axios
         .post('graphql',{
-          query: "{getAllDriver{driversLicense name driverExperience averageDriverRating}}"
+          query : `query {getDriverByDriversLicense(driversLicense: "${driversLicense}"){ driversLicense name driverExperience averageDriverRating}}`
         })
         .then((res) => {
-          console.log(res.data);
+          console.log(res.data.data.getDriverByDriversLicense);
+          this.model = res.data.data.getDriverByDriversLicense
         })
         .catch((err) => {
           console.log(err)

@@ -31,18 +31,25 @@ export default {
           console.log(err);
         });
     },
-    editar(driversLicense) {
-      this.$router.push('');
+    editDriver(driver) {      
+      this.$router.push(`/admin/edit/driver?driversLicense=${driver.driversLicense}`);
     },
-    eliminar(driversLicense) {
+    deleteDriver(driver) {
       axios
         .post('graphql',{
-          mutation: ""
+          query: `mutation{ deleteDriver(driversLicense:"${driver.driversLicense}"){ driversLicense } }`
         })
         .then(res =>{
-          console.log(res.data)
+          this.items = []
+          this.getData();
         })
         .catch((err) => console.log(err));
     },
   },
 };
+
+
+// "driversLicense": "JJS639",
+//       "name": "juuan",
+//       "driverExperience": 2,
+//       "averageDriverRating": "3"

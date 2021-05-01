@@ -16,9 +16,15 @@
         :dark="dark"
         pagination
       >
-        <template #status="{item}">
+        <template #editar="{item}">
           <td>
-            <CBadge :color="getBadge(item.status)">{{ item.status }}</CBadge>
+            <CButton block variant="outline" color="primary" @click="emitEdit(item)">Editar </CButton>
+          </td>
+        </template>
+
+        <template #eliminar="{item}">
+          <td>
+            <CButton block variant="outline" color="danger" @click="emitDelete(item)">Eliminar </CButton>
           </td>
         </template>
       </CDataTable>
@@ -44,7 +50,6 @@ export default {
     dark: Boolean,
   },
   computed: {
-    
     fields() {
       switch (this.kind) {
         case 'buses':
@@ -52,10 +57,25 @@ export default {
         case 'rutas':
           return ['name', 'initialbusstop', 'finalbusstop', 'duration'];
         case 'conductores':
-          return ['driversLicense', 'name', 'driverExperience', 'averageDriverRating','editar','eliminar'];
+          return [
+            'driversLicense',
+            'name',
+            'driverExperience',
+            'averageDriverRating',
+            'editar',
+            'eliminar',
+          ];
         default:
           ['firstname', 'lastname', 'email', 'wallet', 'blockaccount'];
       }
+    },
+  },
+  methods: {
+    emitEdit(item) {
+      this.$emit('edit', item);
+    },
+    emitDelete(item) {
+      this.$emit('erase', item);
     },
   },
 };
