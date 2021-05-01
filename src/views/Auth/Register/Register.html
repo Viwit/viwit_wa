@@ -7,33 +7,32 @@
             <CForm>
               <h1>Register</h1>
               <p class="text-muted">Create your account</p>
-              <CInput
-                placeholder="Username"
-                autocomplete="username"
-              >
-                <template #prepend-content><CIcon name="cil-user"/></template>
+              <CInput placeholder="Firstname" autocomplete="Firstname" v-model="model.Firstname">
+                <template #prepend-content>
+                  <CIcon name="cil-user" />
+                </template>
               </CInput>
-              <CInput
-                placeholder="Email"
-                autocomplete="email"
-                prepend="@"
-              />
-              <CInput
-                placeholder="Password"
-                type="password"
-                autocomplete="new-password"
-              >
-                <template #prepend-content><CIcon name="cil-lock-locked"/></template>
+              <CInput placeholder="Lastname" autocomplete="Lastname" v-model="model.Lastname">
+                <template #prepend-content>
+                  <CIcon name="cil-user" />
+                </template>
               </CInput>
-              <CInput
-                placeholder="Repeat password"
-                type="password"
-                autocomplete="new-password"
-                class="mb-4"
-              >
-                <template #prepend-content><CIcon name="cil-lock-locked"/></template>
+              <CInput placeholder="Email" autocomplete="email" v-model="model.Email" prepend="@" />
+              <CInput placeholder="Password" type="password" autocomplete="new-password" v-model="model.Password">
+                <template #prepend-content>
+                  <CIcon name="cil-lock-locked" />
+                </template>
               </CInput>
-              <CButton color="success" block>Create Account</CButton>
+              <CInput placeholder="Repeat password" type="password" autocomplete="new-password" class="mb-4"
+                v-model="model.Passwordconfirm">
+                <template #prepend-content>
+                  <CIcon name="cil-lock-locked" />
+                </template>
+              </CInput>
+              <CAlert color="danger" closeButton :show.sync="alert1">
+                ¡The passwords are different!
+              </CAlert>
+              <CButton @click="prueba" color="success" block>Create Account</CButton>
             </CForm>
           </CCardBody>
           <CCardFooter class="p-4">
