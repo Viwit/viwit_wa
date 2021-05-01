@@ -18,13 +18,25 @@
       >
         <template #editar="{item}">
           <td>
-            <CButton block variant="outline" color="primary" @click="emitEdit(item)">Editar </CButton>
+            <CButton
+              block
+              variant="outline"
+              color="primary"
+              @click="emitEdit(item)"
+              >Editar
+            </CButton>
           </td>
         </template>
 
         <template #eliminar="{item}">
           <td>
-            <CButton block variant="outline" color="danger" @click="emitDelete(item)">Eliminar </CButton>
+            <CButton
+              block
+              variant="outline"
+              color="danger"
+              @click="emitDelete(item)"
+              >Eliminar
+            </CButton>
           </td>
         </template>
       </CDataTable>
@@ -53,9 +65,24 @@ export default {
     fields() {
       switch (this.kind) {
         case 'buses':
-          return ['code', 'name', 'capacity', 'licensePlate', 'kind'];
+          return [
+            'code',
+            'name',
+            'capacity',
+            'licensePlate',
+            'kind',
+            'editar',
+            'eliminar',
+          ];
         case 'rutas':
-          return ['name', 'initialbusstop', 'finalbusstop', 'duration'];
+          return [
+            'name',
+            'initialbusstop',
+            'finalbusstop',
+            'duration',
+            'editar',
+            'eliminar',
+          ];
         case 'conductores':
           return [
             'driversLicense',
@@ -66,7 +93,15 @@ export default {
             'eliminar',
           ];
         default:
-          ['firstname', 'lastname', 'email', 'wallet', 'blockaccount'];
+          [
+            'firstname',
+            'lastname',
+            'email',
+            'wallet',
+            'blockaccount',
+            'editar',
+            'eliminar',
+          ];
       }
     },
   },
