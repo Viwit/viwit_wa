@@ -4,6 +4,8 @@ export default {
   name: 'EditRoute',
   data() {
     return {
+      driversLicense: this.$route.query.driversLicense,
+      editMode: false,
       model: {
         driversLicense: 0,
         name: '',
@@ -13,14 +15,16 @@ export default {
     };
   },
   created(){
-    this.getData()
+    if(this.driversLicense){
+      this.editMode = true;
+      this.getData()
+    }
   },
   methods: {
     getData() {
-      const driversLicense = this.$route.query.driversLicense;
       axios
         .post('graphql',{
-          query : `query {getDriverByDriversLicense(driversLicense: "${driversLicense}"){ driversLicense name driverExperience averageDriverRating}}`
+          query : `query {getDriverByDriversLicense(driversLicense: "${this.driversLicense}"){ driversLicense name driverExperience averageDriverRating}}`
         })
         .then((res) => {
           console.log(res.data.data.getDriverByDriversLicense);

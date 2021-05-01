@@ -3,28 +3,27 @@
     <CCol sm="12" md="8" >
       <CCard>
         <CCardHeader>
-          
-          <strong v-if="editMode">Editar </strong>
-          <strong v-else>Crear </strong><small>Conductor</small>
+          <strong>Editar </strong><small>Ruta</small>
         </CCardHeader>
         <CCardBody>
           <CRow>
             <CCol sm="4">
-              <CInput v-model="model.driversLicense" label="Licencia" placeholder="Licencia" :readonly="editMode"/>
+              <CInput v-model="model.idRoute" label="Id" placeholder="Id" readonly/>
             </CCol>
             <CCol sm="8">
-              <CInput v-model="model.name" label="Nombre" />
+              <CInput v-model="model.nameRoute" label="Nombre" />
             </CCol>
           </CRow>
           
           <CRow>
             <CCol sm="6">
-              <CInput v-model="model.driverExperience" label="Experiencia" />
+              <CInput v-model="model.initialBusStop" label="Parada Inicial" />
             </CCol>
             <CCol sm="6">
-              <CInput v-model="model.averageDriverRating" label="Calificacion Promedio" readonly/>
+              <CInput v-model="model.finalBusStop" label="Parada Final"/>
             </CCol>
           </CRow>
+          <CInput v-model="model.approximateDuration" label="Duracion Aproximada"/> 
         </CCardBody>
         <CCardFooter>
           <CButton @click="sendEdit" class="mr-2" size="sm" color="primary"><CIcon name="cil-check-circle"/> Guardar Cambios</CButton>
