@@ -8,7 +8,7 @@
         </CCardHeader>
         <CCardBody>
           <CRow>
-            <CCol sm="4">
+            <CCol sm="4" v-if="editMode">
               <CInput v-model="model.idRoute" label="Id" placeholder="Id" readonly/>
             </CCol>
             <CCol sm="8">
