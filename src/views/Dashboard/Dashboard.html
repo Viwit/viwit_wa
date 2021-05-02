@@ -6,13 +6,12 @@
           Conductor
         </CCardHeader>
         <CCardBody>
-          <BarSimple 
-              v-bind:backgroundColor="data_all[2].backgroundColor" v-bind:dataPoints="data_all[2].dataPoints"
-              v-bind:label="data_all[2].label">
-            </BarSimple>
+          <BarSimple :backgroundColor="data_all[0].backgroundColor" :dataPoints="data_all[0].dataPoints"
+            :label="data_all[0].label">
+          </BarSimple>
         </CCardBody>
         <CCardFooter>
-          <p>Promedio <br> {{ data_all[2].promedio }}</p>
+          <p>Promedio <br> {{ data_all[0].promedio }}</p>
         </CCardFooter>
       </CCard>
     </CCol>
@@ -24,8 +23,8 @@
         </CCardHeader>
         <CCardBody>
           <BarSimple v-bind:backgroundColor="data_all[1].backgroundColor" v-bind:dataPoints="data_all[1].dataPoints"
-              v-bind:label="data_all[1].label">
-            </BarSimple>
+            v-bind:label="data_all[1].label">
+          </BarSimple>
         </CCardBody>
         <CCardFooter>
           <p>Promedio <br> {{ data_all[1].promedio }}</p>
@@ -39,20 +38,20 @@
           Ruta
         </CCardHeader>
         <CCardBody>
-          <BarSimple v-bind:backgroundColor="data_all[0].backgroundColor" v-bind:dataPoints="data_all[0].dataPoints"
-              v-bind:label="data_all[0].label">
-            </BarSimple>
+          <BarSimple v-bind:backgroundColor="data_all[2].backgroundColor" v-bind:dataPoints="data_all[2].dataPoints"
+            v-bind:label="data_all[2].label">
+          </BarSimple>
         </CCardBody>
         <CCardFooter>
-          <p>Promedio <br> {{ data_all[0].promedio }}</p>
+          <p>Promedio <br> {{ data_all[2].promedio }}</p>
         </CCardFooter>
       </CCard>
     </CCol>
 
     <CCol sm="12" md="12" lg="12" class="pl-2 pt-2 pr-2 pb-2">
-      <Table class="text-center" v-bind:key="data_all.id" v-bind:fields="['Id', 'kind', 'score']"
+      <Table class="text-center" v-bind:key="data_table.id" v-bind:fields="['id', 'kind', 'score']"
         v-bind:items="dataToLabel(data_table)"></Table>
     </CCol>
-  
+
   </CRow>
 </div>
