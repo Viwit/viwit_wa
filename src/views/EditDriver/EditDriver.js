@@ -4,7 +4,7 @@ export default {
   name: 'EditRoute',
   data() {
     return {
-      driversLicense: this.$route.query.idRoute,
+      driversLicense: this.$route.query.driversLicense,
       editMode: false,
       model: {
         driversLicense: '',
@@ -15,7 +15,6 @@ export default {
     };
   },
   created() {
-    console.log(this.driversLicense)
     if (this.driversLicense) {
       this.editMode = true;
       this.getData();
@@ -55,7 +54,7 @@ export default {
           query: `mutation{postDriver(driver:{driversLicense: "${this.model.driversLicense}", name: "${this.model.name}",driverExperience: ${this.model.driverExperience},averageDriverRating: "${this.model.averageDriverRating}"}){driversLicense}}`,
         })
         .then((res) => {
-          console.log(res.data.data);
+          this.$router.push('/admin/drivers');
         })
         .catch((err) => {
           console.log(err);
