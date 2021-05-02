@@ -35,10 +35,10 @@ export default {
           console.log(err);
         });
     },
-    editRoute(user) {      
+    editUser(user) {      
       this.$router.push(`/admin/edit/user?User_id=${user.User_id}`);
     },
-    deleteRoute(user) {
+    deleteUser(user) {
       axios
         .post('graphql',{
           query: `mutation{
