@@ -4,6 +4,8 @@ export default {
   name: 'EditRoute',
   data() {
     return {
+      idRoute: this.$route.query.idRoute,
+      editMode: false,
       model: {
         idRoute: 0,
         nameRoute: '',
@@ -14,8 +16,28 @@ export default {
     };
   },
   created(){
-    this.getData()
+    if (this.idRoute) {
+      this.editMode = true;
+      this.getData();
+    }
   },
+
+  computed: {
+    formFilled() {
+      if (
+        !this.model.idRoute &&
+        this.model.nameRoute &&
+        this.model.initialBusStop &&
+        this.model.finalBusStop &&
+        this.model.approximateDuration
+      ) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+  },
+
   methods: {
     getData() {
       const idRoute = this.$route.query.idRoute;
@@ -56,6 +78,30 @@ export default {
         })
         .catch((err) => {
           console.log(err)
+        });
+    },
+    sendCreate() {
+      axios
+        .post('graphql', {
+          query: `mutation{postRoute(
+            route: {
+              nameRoute: "${this.model.nameRoute}", 
+              initialBusStop: "${this.model.initialBusStop}",
+              finalBusStop: "${this.model.finalBusStop}",
+              approximateDuration: "${this.model.approximateDuration}"
+            }
+            )
+            {
+              message
+            }
+          }`,
+        })
+        .then((res) => {
+          console.log(res.data.data);
+          this.$router.push(`/admin/routes`);
+        })
+        .catch((err) => {
+          console.log(err);
         });
     },
     sendDelete() {

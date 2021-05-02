@@ -4,7 +4,7 @@ export default {
   name: 'EditRoute',
   data() {
     return {
-      driversLicense: this.$route.query.driversLicense,
+      driversLicense: this.$route.query.idRoute,
       editMode: false,
       model: {
         driversLicense: '',
@@ -15,6 +15,7 @@ export default {
     };
   },
   created() {
+    console.log(this.driversLicense)
     if (this.driversLicense) {
       this.editMode = true;
       this.getData();

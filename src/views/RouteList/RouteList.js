@@ -34,6 +34,9 @@ export default {
     editRoute(Route) {      
       this.$router.push(`/admin/edit/route?idRoute=${Route.idRoute}`);
     },
+    addRoute(){
+      this.$router.push('edit/route?createMode=true')
+    },
     deleteRoute(route) {
       axios
         .post('graphql',{
