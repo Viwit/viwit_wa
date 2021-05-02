@@ -93,12 +93,12 @@ export default {
             'eliminar',
           ];
         default:
-          [
-            'firstname',
-            'lastname',
-            'email',
-            'wallet',
-            'blockaccount',
+          return [
+            'Firstname',
+            'Lastname',
+            'Email',
+            'Wallet',
+            'Blockaccount',
             'editar',
             'eliminar',
           ];

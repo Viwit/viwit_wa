@@ -1,33 +1,56 @@
 <div>
   <CRow>
-    <CCol sm="12" md="8" >
+    <CCol sm="12" md="8">
       <CCard>
         <CCardHeader>
-          <strong>Editar </strong><small>Ruta</small>
+          <strong>Editar </strong>
+          <small>usuario</small>
         </CCardHeader>
-        <CCardBody>
+        <CCardBody class="p-4">
           <CRow>
             <CCol sm="4">
-              <CInput v-model="model.idRoute" label="Id" placeholder="Id" readonly/>
+              <CInput v-model="model.User_id" label="Id" placeholder="Id" readonly />
+            </CCol>
+            <CCol sm="6">
+              <CInput v-model="model.Block_account.toString()" label="Block account" readonly />
+            </CCol>
+            <CCol sm="2">
+              <CSwitch class="float-right" size="lg" shape="pill" color="info" data-on="On" data-off="Off"
+                :checked.sync="model.Block_account" />
+            </CCol>
+          </CRow>
+          <CRow>
+            <CCol sm="4">
+              <CInput v-model="model.Firstname" label="Firstname" placeholder="Firstname" />
             </CCol>
             <CCol sm="8">
-              <CInput v-model="model.nameRoute" label="Nombre" />
+              <CInput v-model="model.Lastname" label="Lastname" placeholder="Lastname" />
             </CCol>
           </CRow>
-          
           <CRow>
-            <CCol sm="6">
-              <CInput v-model="model.initialBusStop" label="Parada Inicial" />
-            </CCol>
-            <CCol sm="6">
-              <CInput v-model="model.finalBusStop" label="Parada Final"/>
+            <CCol sm="12">
+              <CInput v-model="model.Email" label="Email" placeholder="Email" />
             </CCol>
           </CRow>
-          <CInput v-model="model.approximateDuration" label="Duracion Aproximada"/> 
+          <CRow>
+            <CCol sm="12">
+              <CInput v-model="model.User_password" type="password" label="Password" placeholder="Password" />
+            </CCol>
+          </CRow>
+          <CRow>
+            <CCol sm="12">
+              <CInput v-model="model.User_password_confirm" type="password" label="Password confirm" placeholder="Password confirm" />
+            </CCol>
+          </CRow>
         </CCardBody>
-        <CCardFooter>
-          <CButton @click="sendEdit" class="mr-2" size="sm" color="primary"><CIcon name="cil-check-circle"/> Guardar Cambios</CButton>
-          <CButton @click="sendDelete" size="sm" color="danger"><CIcon name="cil-ban"/> Eliminar</CButton>
+        <CCardFooter class="p-4">
+          <CButton @click="sendEdit" class="mr-2" size="sm" color="primary">
+            <CIcon name="cil-check-circle" /> Guardar Cambios
+          </CButton>
+          <CButton @click="sendDelete" size="sm" color="danger">
+            <CIcon name="cil-ban" /> Eliminar
+          </CButton>
+          </template>
         </CCardFooter>
       </CCard>
     </CCol>
