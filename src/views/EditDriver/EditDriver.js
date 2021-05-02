@@ -25,8 +25,7 @@ export default {
       if (
         this.model.driversLicense &&
         this.model.name &&
-        this.model.driverExperience &&
-        this.model.averageDriverRating
+        this.model.driverExperience
       ) {
         return true;
       } else {
@@ -41,7 +40,6 @@ export default {
           query: `query {getDriverByDriversLicense(driversLicense: "${this.driversLicense}"){ driversLicense name driverExperience averageDriverRating}}`,
         })
         .then((res) => {
-          console.log(res.data.data.getDriverByDriversLicense);
           this.model = res.data.data.getDriverByDriversLicense;
         })
         .catch((err) => {
@@ -74,7 +72,6 @@ export default {
           }`,
         })
         .then((res) => {
-          console.log(res.data)
           this.$router.push('/admin/drivers');
         })
         .catch((err) => console.log(err));
@@ -85,7 +82,6 @@ export default {
           query: `mutation{ deleteDriver(driversLicense:"${this.model.driversLicense}"){ driversLicense } }`,
         })
         .then((res) => {
-          console.log(res.data)
           this.$router.push('/admin/drivers');
         })
         .catch((err) => console.log(err));
