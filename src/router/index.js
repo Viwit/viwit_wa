@@ -9,17 +9,17 @@ const Dashboard = () => import('@/views/Dashboard')
 const Credit = () => import('@/views/Credit');
 
 //Drivers
-const DriverList = () => import('@/views/DriverList')
-const EditDriver = () => import('@/views/EditDriver');
+const DriverList = () => import('@/views/Driver/DriverList')
+const EditDriver = () => import('@/views/Driver/EditDriver');
 //Routes
-const RouteList = () => import('@/views/RouteList')
-const EditRoute = () => import('@/views/EditRoute');
+const RouteList = () => import('@/views/Route/RouteList')
+const EditRoute = () => import('@/views/Route/EditRoute');
 //Buses
-const BusList = () => import('@/views/BusList')
-const EditBus = () => import('@/views/EditBus');
+const BusList = () => import('@/views/Bus/BusList')
+const EditBus = () => import('@/views/Bus/EditBus');
 //Users
-const UserList = () => import('@/views/UserList')
-const EditUser = () => import('@/views/EditUser');
+const UserList = () => import('@/views/User/UserList')
+const EditUser = () => import('@/views/User/EditUser');
 
 
 //Auth
