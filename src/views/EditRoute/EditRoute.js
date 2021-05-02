@@ -25,7 +25,6 @@ export default {
   computed: {
     formFilled() {
       if (
-        !this.model.idRoute &&
         this.model.nameRoute &&
         this.model.initialBusStop &&
         this.model.finalBusStop &&
@@ -46,7 +45,6 @@ export default {
           query : `query{getRouteByIdRoute(idRoute: ${idRoute}){idRoute nameRoute initialBusStop approximateDuration finalBusStop}}`
         })
         .then((res) => {
-          console.log(res.data.data.getRouteByIdRoute);
           this.model = res.data.data.getRouteByIdRoute
         })
         .catch((err) => {
@@ -73,7 +71,6 @@ export default {
           }`
         })
         .then((res) => {
-          console.log(res.data.data.putRoute);
           this.$router.push(`/admin/routes`);
         })
         .catch((err) => {
@@ -97,7 +94,6 @@ export default {
           }`,
         })
         .then((res) => {
-          console.log(res.data.data);
           this.$router.push(`/admin/routes`);
         })
         .catch((err) => {
@@ -114,7 +110,6 @@ export default {
           }`
         })
         .then((res) => {
-          console.log('Delete');
           this.$router.push(`/admin/routes`);
         })
         .catch((err) => {
