@@ -76,10 +76,10 @@ export default {
           ];
         case 'rutas':
           return [
-            'name',
-            'initialbusstop',
-            'finalbusstop',
-            'duration',
+            'nameRoute',
+            'initialBusStop',
+            'finalBusStop',
+            'approximateDuration',
             'editar',
             'eliminar',
           ];
@@ -93,12 +93,12 @@ export default {
             'eliminar',
           ];
         default:
-          [
-            'firstname',
-            'lastname',
-            'email',
-            'wallet',
-            'blockaccount',
+          return [
+            'Firstname',
+            'Lastname',
+            'Email',
+            'Wallet',
+            'Blockaccount',
             'editar',
             'eliminar',
           ];

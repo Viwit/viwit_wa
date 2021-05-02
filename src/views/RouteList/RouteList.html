@@ -1,3 +1,19 @@
 <div>
-  <h1>Hello world!</h1>
+  <CCard>
+    <CCardBody>
+      <EntityTable
+        :items="items"
+        kind="rutas"
+        hover
+        border
+        striped
+        small
+        fixed
+        caption="Routes"
+        @edit="editRoute"
+        @erase="deleteRoute"
+      />
+      <CButton block variant="outline" color="primary" @click="addRoute">Crear Ruta</CButton>
+    </CCardBody>
+  </CCard>
 </div>

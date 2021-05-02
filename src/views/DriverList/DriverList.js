@@ -32,7 +32,7 @@ export default {
         });
     },
     addDriver(){
-      this.$router.push('edit/driver?createMode=true')
+      this.$router.push('edit/driver')
     },
     editDriver(driver) {      
       this.$router.push(`edit/driver?driversLicense=${driver.driversLicense}`);

@@ -1,3 +1,17 @@
 <div>
-  <h1>Hello world!</h1>
+  <CCard>
+    <CCardBody>
+      <EntityTable
+        :items="items"
+        hover
+        border
+        striped
+        small
+        fixed
+        caption="Users"
+        @edit="editRoute"
+        @erase="deleteRoute"
+      />
+    </CCardBody>
+  </CCard>
 </div>
