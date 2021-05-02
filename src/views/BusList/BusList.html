@@ -1,3 +1,19 @@
 <div>
-  <h1>Hello world!</h1>
+  <CCard>
+    <CCardBody>
+      <EntityTable
+        :items="items"
+        kind="buses"
+        hover
+        border
+        striped
+        small
+        fixed
+        caption="Buses"
+        @edit="editBus"
+        @erase="deleteBus"
+      />
+      <CButton block variant="outline" color="primary" @click="addBus">Crear Bus</CButton>
+    </CCardBody>
+  </CCard>
 </div>

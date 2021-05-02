@@ -3,31 +3,44 @@
     <CCol sm="12" md="8" >
       <CCard>
         <CCardHeader>
-          <strong>Editar </strong><small>Ruta</small>
+          
+          <strong v-if="editMode">Editar </strong>
+          <strong v-else>Crear </strong><small>Buses</small>
         </CCardHeader>
         <CCardBody>
           <CRow>
             <CCol sm="4">
-              <CInput v-model="model.idRoute" label="Id" placeholder="Id" readonly/>
+              <CInput v-model="model.licensePlateBus" label="Placa" placeholder="Placa" :readonly="editMode"/>
             </CCol>
             <CCol sm="8">
-              <CInput v-model="model.nameRoute" label="Nombre" />
+              <CInput v-model="model.model" label="Modelo" placeholder="Modelo" />
             </CCol>
           </CRow>
           
           <CRow>
             <CCol sm="6">
-              <CInput v-model="model.initialBusStop" label="Parada Inicial" />
+              <CInput v-model="model.seatedPassengerCapacity" type="number" label="Capacidad pasajeros" placeholder="Capacidad pasajeros"/>
             </CCol>
             <CCol sm="6">
-              <CInput v-model="model.finalBusStop" label="Parada Final"/>
+              <CInput v-model="model.standingPassengerCapacity" type="number" label="Ocupación pasajeros" readonly/>
             </CCol>
           </CRow>
-          <CInput v-model="model.approximateDuration" label="Duracion Aproximada"/> 
+
+          <CRow>
+            <CCol sm="6">
+              <CInput v-model="model.debtCollectorIdUser" label="Cobrador" type="number" placeholder="Cobrador" readonly/>
+            </CCol>
+          </CRow>
         </CCardBody>
         <CCardFooter>
-          <CButton @click="sendEdit" class="mr-2" size="sm" color="primary"><CIcon name="cil-check-circle"/> Guardar Cambios</CButton>
-          <CButton @click="sendDelete" size="sm" color="danger"><CIcon name="cil-ban"/> Eliminar</CButton>
+          <template v-if="editMode">
+            <CButton @click="sendEdit" class="mr-2" size="sm" color="primary" ><CIcon name="cil-check-circle"/> Guardar Cambios</CButton>
+            <CButton @click="sendDelete" size="sm" color="danger" :disabled="!formFilled"><CIcon name="cil-ban"/> Eliminar</CButton>
+          </template>
+          <template v-else>
+            <CButton @click="sendCreate" class="mr-2" size="sm" color="primary" :disabled="!formFilled"><CIcon name="cil-check-circle"/> Crear</CButton>
+          </template>
+          
         </CCardFooter>
       </CCard>
     </CCol>
