@@ -25,10 +25,9 @@ export default {
   computed: {
     formFilled() {
       if (
+        this.model.licensePlateBus &&
         this.model.model &&
-        this.model.seatedPassengerCapacity &&
-        this.model.standingPassengerCapacity &&
-        this.model.debtCollectorIdUser
+        this.model.seatedPassengerCapacity
       ) {
         return true;
       } else {
@@ -43,7 +42,6 @@ export default {
           query: `query {getBusByLicensePlate(licensePlate:"${this.licensePlateBus}"){licensePlateBus model seatedPassengerCapacity standingPassengerCapacity debtCollectorIdUser}}`,
         })
         .then((res) => {
-          console.log(res.data.data.getBusByLicensePlate);
           this.model = res.data.data.getBusByLicensePlate;
         })
         .catch((err) => {
@@ -56,7 +54,8 @@ export default {
           query: `mutation{postBus(bus:{licensePlateBus: "${this.model.licensePlateBus}",model: "${this.model.model}",seatedPassengerCapacity: ${this.model.seatedPassengerCapacity},standingPassengerCapacity: ${this.model.standingPassengerCapacity},debtCollectorIdUser: ${this.model.debtCollectorIdUser}}){licensePlateBus}}`,
         })
         .then((res) => {
-          console.log(res.data.data);
+          this.$router.push('/admin/buses');
+
         })
         .catch((err) => {
           console.log(err);
@@ -68,7 +67,6 @@ export default {
           query: `mutation{putBus(licensePlate: "${this.model.licensePlateBus}", bus:{licensePlateBus: "${this.model.licensePlateBus}",model: "${this.model.model}",seatedPassengerCapacity: ${this.model.seatedPassengerCapacity},standingPassengerCapacity: ${this.model.standingPassengerCapacity},debtCollectorIdUser: ${this.model.debtCollectorIdUser}}){licensePlateBus}}`,
         })
         .then((res) => {
-          console.log(res.data)
           this.$router.push('/admin/buses');
         })
         .catch((err) => console.log(err));
@@ -79,7 +77,6 @@ export default {
           query: `mutation{ deleteBus(licensePlate:"${this.model.licensePlateBus}"){ licensePlateBus } }`,
         })
         .then((res) => {
-          console.log(res.data)
           this.$router.push('/admin/buses');
         })
         .catch((err) => console.log(err));

@@ -34,8 +34,8 @@
         </CCardBody>
         <CCardFooter>
           <template v-if="editMode">
-            <CButton @click="sendEdit" class="mr-2" size="sm" color="primary" ><CIcon name="cil-check-circle"/> Guardar Cambios</CButton>
-            <CButton @click="sendDelete" size="sm" color="danger" :disabled="!formFilled"><CIcon name="cil-ban"/> Eliminar</CButton>
+            <CButton @click="sendEdit" class="mr-2" size="sm" color="primary" :disabled="!formFilled"><CIcon name="cil-check-circle"/> Guardar Cambios</CButton>
+            <CButton @click="sendDelete" size="sm" color="danger" ><CIcon name="cil-ban"/> Eliminar</CButton>
           </template>
           <template v-else>
             <CButton @click="sendCreate" class="mr-2" size="sm" color="primary" :disabled="!formFilled"><CIcon name="cil-check-circle"/> Crear</CButton>
