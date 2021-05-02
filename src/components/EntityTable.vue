@@ -66,11 +66,11 @@ export default {
       switch (this.kind) {
         case 'buses':
           return [
-            'code',
-            'name',
-            'capacity',
-            'licensePlate',
-            'kind',
+            'licensePlateBus',
+            'model',
+            'seatedPassengerCapacity',
+            'standingPassengerCapacity',
+            'debtCollectorIdUser',
             'editar',
             'eliminar',
           ];
