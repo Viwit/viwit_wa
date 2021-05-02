@@ -63,7 +63,15 @@ export default {
     sendEdit() {
       axios
         .post('graphql', {
-          query: `mutation{ putDriver(driversLicense: "${this.model.driversLicense}",driver:{driversLicense: "${this.model.driversLicense}", name: "${this.model.name}",driverExperience: ${this.model.driverExperience},averageDriverRating: "${this.model.averageDriverRating}"}){driversLicense}}`,
+          query: `mutation{ putDriver(
+            driversLicense: "${this.model.driversLicense}",
+            driver:{driversLicense: "${this.model.driversLicense}", 
+            name: "${this.model.name}",driverExperience: ${this.model.driverExperience},
+            averageDriverRating: "${this.model.averageDriverRating}"})
+            {
+              driversLicense
+            }
+          }`,
         })
         .then((res) => {
           console.log(res.data)
