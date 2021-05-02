@@ -37,6 +37,30 @@ export default [
         icon: 'cil-puzzle'
       },
       {
+        _name: 'CSidebarNavItem',
+        name: 'Edit Route',
+        to: '/admin/edit/route',
+        icon: 'cil-pencil'
+      },
+      {
+        _name: 'CSidebarNavItem',
+        name: 'Edit Driver',
+        to: '/admin/edit/driver',
+        icon: 'cil-pencil'
+      },
+      {
+        _name: 'CSidebarNavItem',
+        name: 'Edit Bus',
+        to: '/admin/edit/bus',
+        icon: 'cil-pencil'
+      },
+      {
+        _name: 'CSidebarNavItem',
+        name: 'Edit User',
+        to: '/admin/edit/user',
+        icon: 'cil-pencil'
+      },
+      {
         _name: 'CSidebarNavTitle',
         _children: ['Template Elements']
       },

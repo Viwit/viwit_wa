@@ -5,25 +5,24 @@ import Router from 'vue-router';
 const TheContainer = () => import('@/containers/TheContainer');
 
 // Views
-
 const Dashboard = () => import('@/views/Dashboard')
-
-const DriverList = () => import('@/views/DriverList')
-const RouteList = () => import('@/views/RouteList')
-const BusList = () => import('@/views/BusList')
-const UserList = () => import('@/views/UserList')
-const TableKind = () => import('@/views/TablesEntities/Tables')
-
-
-const EditRoute = () => import('@/views/EditRoute');
-const EditDriver = () => import('@/views/EditDriver');
-const EditUser = () => import('@/views/EditUser');
-const EditBus = () => import('@/views/EditBus');
-
 const Credit = () => import('@/views/Credit');
 
-//Auth
+//Drivers
+const DriverList = () => import('@/views/DriverList')
+const EditDriver = () => import('@/views/EditDriver');
+//Routes
+const RouteList = () => import('@/views/RouteList')
+const EditRoute = () => import('@/views/EditRoute');
+//Buses
+const BusList = () => import('@/views/BusList')
+const EditBus = () => import('@/views/EditBus');
+//Users
+const UserList = () => import('@/views/UserList')
+const EditUser = () => import('@/views/EditUser');
 
+
+//Auth
 const Login = () => import('@/views/Auth/Login');
 const Register = () => import('@/views/Auth/Register');
 
@@ -101,11 +100,6 @@ function configRoutes() {
           path: 'dashboard',
           name: 'Dashboard',
           component: Dashboard,
-        },
-        {
-          path: 'table-kind',
-          name: 'TableKind',
-          component: TableKind,
         },
         {
           path: 'drivers',
