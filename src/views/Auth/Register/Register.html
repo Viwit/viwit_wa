@@ -29,10 +29,7 @@
                   <CIcon name="cil-lock-locked" />
                 </template>
               </CInput>
-              <CAlert color="danger" closeButton :show.sync="alert1">
-                ¡The passwords are different!
-              </CAlert>
-              <CButton @click="prueba" color="success" :disabled="!formFilled">Create Account</CButton>
+              <CButton @click="postData" color="success" :disabled="!formFilled">Create Account</CButton>
             </CForm>
           </CCardBody>
           <CCardFooter class="p-4">

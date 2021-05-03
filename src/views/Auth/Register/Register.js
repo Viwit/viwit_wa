@@ -10,7 +10,7 @@ export default {
         Lastname: '',
         Email: '',
         Password: '',
-        Passwordconfirm: ''
+        Passwordconfirm: '',
       },
     };
   },
@@ -21,8 +21,8 @@ export default {
         this.model.Lastname &&
         this.model.Email &&
         this.model.Password &&
-        this.model.Passwordconfirm && 
-        (this.model.Passwordconfirm == this.model.Password)
+        this.model.Passwordconfirm &&
+        this.model.Passwordconfirm == this.model.Password
       ) {
         return true;
       } else {
@@ -32,30 +32,25 @@ export default {
   },
   methods: {
     postData() {
-      if(this.model.Password == this.model.Passwordconfirm){
-        this.alert1 = false;
-        axios
-          .post('graphql',{
-            query: `{setUser(user:{
+      axios
+        .post('graphql', {
+          query: `mutation { setUser ( user: {
               Firstname: "${this.model.Firstname}"
               Lastname: "${this.model.Lastname}"
               Email: "${this.model.Email}"
               User_password: "${this.model.User_password}"
-              Block_account: ${this.model.Block_account}
+              Block_account: false
             }){
               User_id
-            }}}`
-          })
-          .then((res) => {
-            this.$router.push(`/login`);
-          })
-          .catch((err) => {
-            console.log('Error Register');
-            console.log(err)
-          });
-      }else{
-        this.alert1 = true;
-      }
+              User_type
+            }}`,
+        })
+        .then((res) => {
+          this.$router.push(`/login`);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     },
   },
 };
