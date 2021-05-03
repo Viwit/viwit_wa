@@ -8,10 +8,17 @@
         </CCardHeader>
         <CCardBody class="p-4">
           <CRow>
-            <CCol sm="4">
+            <CCol sm="3">
               <CInput v-model="model.User_id" label="Id" placeholder="Id" readonly />
             </CCol>
-            <CCol sm="6">
+            <CCol sm="3">
+              <CSelect
+                  label="Tipo"  
+                  :value.sync="userTypeSelection"            
+                  :options="userTypes"
+              />
+            </CCol>
+            <CCol sm="4">
               <CInput v-model="model.Block_account.toString()" label="Block account" readonly />
             </CCol>
             <CCol sm="2">

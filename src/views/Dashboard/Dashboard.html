@@ -1,17 +1,25 @@
 <div class="align-items-center min-vh-100">
-  <CRow class="ml-2 mt-2 mr-2 mb-2">
+  <WidgetsDropdown />
+
+  <CRow>
     <CCol>
       <CCard>
         <CCardHeader>
           Conductor
         </CCardHeader>
         <CCardBody>
-          <BarSimple :backgroundColor="data_all[0].backgroundColor" :dataPoints="data_all[0].dataPoints"
-            :label="data_all[0].label">
+          <BarSimple
+            :backgroundColor="driverChart.color"
+            :dataPoints="driverChart.data"
+            :label="driverChart.label"
+          >
           </BarSimple>
         </CCardBody>
         <CCardFooter>
-          <p>Promedio <br> {{ data_all[0].promedio }}</p>
+          <p>
+            Promedio <br />
+            {{ driverChart.average}}
+          </p>
         </CCardFooter>
       </CCard>
     </CCol>
@@ -22,12 +30,18 @@
           Bus
         </CCardHeader>
         <CCardBody>
-          <BarSimple v-bind:backgroundColor="data_all[1].backgroundColor" v-bind:dataPoints="data_all[1].dataPoints"
-            v-bind:label="data_all[1].label">
+          <BarSimple
+            v-bind:backgroundColor="busChart.color"
+            v-bind:dataPoints="busChart.data"
+            v-bind:label="busChart.label"
+          >
           </BarSimple>
         </CCardBody>
         <CCardFooter>
-          <p>Promedio <br> {{ data_all[1].promedio }}</p>
+          <p>
+            Promedio <br />
+            {{ busChart.average}}
+          </p>
         </CCardFooter>
       </CCard>
     </CCol>
@@ -38,20 +52,32 @@
           Ruta
         </CCardHeader>
         <CCardBody>
-          <BarSimple v-bind:backgroundColor="data_all[2].backgroundColor" v-bind:dataPoints="data_all[2].dataPoints"
-            v-bind:label="data_all[2].label">
+          <BarSimple
+            v-bind:backgroundColor="routeChart.color"
+            v-bind:dataPoints="routeChart.data"
+            v-bind:label="routeChart.label"
+          >
           </BarSimple>
         </CCardBody>
         <CCardFooter>
-          <p>Promedio <br> {{ data_all[2].promedio }}</p>
+          <p>
+            Promedio <br />
+            {{ routeChart.average }}
+          </p>
         </CCardFooter>
       </CCard>
     </CCol>
-
-    <CCol sm="12" md="12" lg="12" class="pl-2 pt-2 pr-2 pb-2">
-      <Table class="text-center" v-bind:key="data_table.id" v-bind:fields="['id', 'kind', 'score']"
-        v-bind:items="dataToLabel(data_table)"></Table>
-    </CCol>
-
   </CRow>
+
+  <CRow>
+    <CCol sm="12" class="pl-2 pt-2 pr-2 pb-2">
+      <Table
+        caption="Calificaciones"
+        class="text-center"
+        :fields="['ID', 'Tipo', 'Calificacion']"
+        :items="scores"
+      />
+    </CCol>
+  </CRow>
+
 </div>
