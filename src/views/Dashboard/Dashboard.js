@@ -1,5 +1,6 @@
-import BarSimple from "@/views/charts/CChartBarSimple";
-import Table from "@/views/base/Table";
+import BarSimple from '@/views/charts/CChartBarSimple';
+import WidgetsDropdown from '@/components/WidgetsDropdown';
+import Table from '@/views/base/Table';
 import axios from 'axios';
 
 export default {
@@ -7,102 +8,88 @@ export default {
   components: {
     BarSimple,
     Table,
+    WidgetsDropdown,
   },
   data() {
     return {
-      data_table: [],
-      data_all: [
-        {
-          id: 1,
-          backgroundColor: "rgba(0,0,0,.2)",
-          promedio: 4.5,
-          dataPoints: [1, 2, 3, 4, 0],
-          label: "Conductor",
-        },
-        {
-          id: 2,
-          backgroundColor: "rgba(0,255,0,.2)",
-          promedio: 3.5,
-          dataPoints: [1, 4, 3, 4, 0],
-          label: "Bus",
-        },
-        {
-          id: 3,
-          backgroundColor: "rgba(0,0,255,.2)",
-          promedio: 2.5,
-          dataPoints: [4, 2, 3, 4, 0],
-          label: "Ruta",
-        },
-      ],
+      scores: [],
+      driverChart: {
+        color: 'danger',
+        average: 0,
+        data: [],
+        label: 'Conductores',
+      },
+      busChart: {
+        color: 'rgba(0,255,0,.2)',
+        average: 0,
+        data: [],
+        label: 'Buses',
+      },
+      routeChart: {
+        color: 'rgba(0,0,255,.2)',
+        average: 0,
+        data: [],
+        label: 'Buses',
+      }
     };
   },
-  
-  created(){
-    this.getData()
+
+  created() {
+    this.getData();
   },
 
   methods: {
     getData() {
       axios
-        .post('graphql',{
-          query: "{getAllScores{ id kind score}}"
+        .post('graphql', {
+          query: '{getAllScores{ id kind score}}',
         })
         .then((res) => {
-          console.log(res.data.data.getAllScores);
-          this.calculateData(res.data.data.getAllScores);
+          this.calculateData(res.data.data.getAllScores); 
+          res.data.data.getAllScores.forEach(element => {
+            if(element.kind >= 0 && element.kind <= 3){
+              this.scores.push({
+                ID : element.id,
+                Tipo: this.getType(element.kind),
+                Calificacion : element.score
+              })
+            }
+          });
         })
         .catch((err) => {
-          console.log(err)
+          console.log(err);
         });
     },
-    calculateData(data){
-      var dataPoints1 = [0,0,0,0,0,0]
-      var dataPoints2 = [0,0,0,0,0,0]
-      var dataPoints3 = [0,0,0,0,0,0]
-      var promedio1 = 0
-      var promedio2 = 0
-      var promedio3 = 0
-      var n1 = 0;
-      var n2 = 0;
-      var n3 = 0;
-      data.forEach(element => {
-        if(element.kind == 1){
-          dataPoints1[element.score] += 1;
-          promedio1 += element.score;
-          n1 += 1;
-        }else if(element.kind == 2){
-          dataPoints2[element.score] += 1;
-          promedio2 += element.score;
-          n2 += 1;
-        }else if(element.kind == 3){
-          dataPoints3[element.score] += 1;
-          promedio3 += element.score;
-          n3 += 1;
-        }
-        this.data_table.push(element);
-        
-      });
-      this.data_all[0].dataPoints = dataPoints1;
-      this.data_all[1].dataPoints = dataPoints2;
-      this.data_all[2].dataPoints = dataPoints3;
-      this.data_all[0].promedio = promedio1/n1;
-      this.data_all[1].promedio = promedio2/n2;
-      this.data_all[2].promedio = promedio3/n3;
+    getType(kind){
+      if(kind == 1){
+        return 'Conductor'
+      }else if(kind == 2){
+        return 'Bus'
+      }else if(kind == 3){
+        return 'Ruta'
+      }
     },
-
-    dataToLabel(data_table) {
-      data_table.forEach((element) => {
+    calculateData(data) {
+      let drivers = [];
+      let buses = [];
+      let routes = [];
+      data.forEach((element) => {
         if (element.kind == 1) {
-          element.kind = "Conductor";
-        }else if (element.kind == 2){
-          element.kind = "Bus";
-        }else if (element.kind == 3){
-          element.kind = "Ruta";
+          drivers.push(element.score);
+        } else if (element.kind == 2) {
+          buses.push(element.score);
+        } else if (element.kind == 3) {
+          routes.push(element.score);
         }
       });
-      return data_table
-    },
+      this.driverChart.data = drivers
+      this.driverChart.average = drivers.reduce((a, b) => a + b) / drivers.length;
 
+      this.busChart.data = buses
+      this.busChart.average = buses.reduce((a, b) => a + b) / buses.length;
+
+      this.routeChart.data = routes
+      this.routeChart.average = routes.reduce((a, b) => a + b) / routes.length;
+    }
   },
-  
 };

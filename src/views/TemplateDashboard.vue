@@ -455,7 +455,7 @@
 
 <script>
 import MainChartExample from './charts/MainChartExample'
-import WidgetsDropdown from './widgets/WidgetsDropdown'
+import WidgetsDropdown from '@/components/WidgetsDropdown'
 import WidgetsBrand from './widgets/WidgetsBrand'
 
 export default {
