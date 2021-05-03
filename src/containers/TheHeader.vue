@@ -15,18 +15,8 @@
     </CHeaderBrand>
     <CHeaderNav class="d-md-down-none mr-auto">
       <CHeaderNavItem class="px-3">
-        <CHeaderNavLink to="/dashboard">
+        <CHeaderNavLink to="/admin/dashboard">
           Dashboard
-        </CHeaderNavLink>
-      </CHeaderNavItem>
-      <CHeaderNavItem class="px-3">
-        <CHeaderNavLink to="/users" exact>
-          Users
-        </CHeaderNavLink>
-      </CHeaderNavItem>
-      <CHeaderNavItem class="px-3">
-        <CHeaderNavLink>
-          Settings
         </CHeaderNavLink>
       </CHeaderNavItem>
     </CHeaderNav>
@@ -48,9 +38,7 @@
       </CHeaderNavItem>
       <TheHeaderDropdownAccnt/>
     </CHeaderNav>
-    <CSubheader class="px-3">
-      <CBreadcrumbRouter class="border-0 mb-0"/>
-    </CSubheader>
+    
   </CHeader>
 </template>
 
