@@ -82,7 +82,7 @@ export default {
         })
         .then((res) => {
           console.log(res.data);
-          this.$router.push('/admin/drivers');
+          this.$router.push('/admin/users');
         })
         .catch((err) => console.log(err));
     },

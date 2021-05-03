@@ -24,9 +24,8 @@ export default {
         .then((res) => {
           console.log(res.data.data.getusers)
           res.data.data.getusers.forEach((element) => {
-            //TO DO CORREGIR :V
-            element.Wallet = "TO DO /UserList"
-            element.Blockaccount= 'TO DO /UserList'
+            element.Wallet = "-"
+            element.Bloqueado= element.blockAccount ? 'Si' : 'No'
             this.items.push(element);
             console.log(element)
           });
