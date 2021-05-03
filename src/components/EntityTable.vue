@@ -98,7 +98,7 @@ export default {
             'Lastname',
             'Email',
             'Wallet',
-            'Blockaccount',
+            'Bloqueado',
             'editar',
             'eliminar',
           ];
