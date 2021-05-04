@@ -92,7 +92,7 @@ function configRoutes() {
   return [
     {
       path: '/admin',
-      redirect: '/admin/template-dashboard',
+      redirect: '/admin/dashboard',
       name: 'Home',
       component: TheContainer,
       children: [
