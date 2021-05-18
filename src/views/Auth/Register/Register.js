@@ -38,7 +38,7 @@ export default {
               Firstname: "${this.model.Firstname}"
               Lastname: "${this.model.Lastname}"
               Email: "${this.model.Email}"
-              User_password: "${this.model.User_password}"
+              User_password: "${this.model.Password}"
               Block_account: false
             }){
               User_id
