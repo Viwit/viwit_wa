@@ -1,11 +1,14 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import axios from 'axios';
 Vue.use(Vuex)
 
 const state = {
   sidebarShow: 'responsive',
-  sidebarMinimize: false
+  sidebarMinimize: false,
+  token: 'null'
 }
+
 
 const mutations = {
   toggleSidebarDesktop (state) {
@@ -18,6 +21,9 @@ const mutations = {
   },
   set (state, [variable, value]) {
     state[variable] = value
+  },
+  updateToken(){
+    
   }
 }
 

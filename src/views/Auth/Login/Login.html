@@ -9,8 +9,9 @@
                 <h1>Login</h1>
                 <p class="text-muted">Sign In to your account</p>
                 <CInput
-                  placeholder="Username"
+                  placeholder="email"
                   autocomplete="username email"
+                  v-model="model.email"
                 >
                   <template #prepend-content><CIcon name="cil-user"/></template>
                 </CInput>
@@ -18,6 +19,7 @@
                   placeholder="Password"
                   type="password"
                   autocomplete="curent-password"
+                  v-model="model.password"
                 >
                   <template #prepend-content><CIcon name="cil-lock-locked"/></template>
                 </CInput>
@@ -31,6 +33,15 @@
                   </CCol>
                 </CRow>
               </CForm>
+              <br>
+              <br>
+              <CAlert
+            color="danger"
+            closeButton
+            :show.sync="alert1"
+          >
+            Email or password are wrong!
+          </CAlert>
             </CCardBody>
           </CCard>
           <CCard
