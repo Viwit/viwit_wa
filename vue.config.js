@@ -1,3 +1,5 @@
+const fs = require('fs');
+
 module.exports = {
   lintOnSave: false,
   runtimeCompiler: true,
@@ -12,12 +14,10 @@ module.exports = {
     '@coreui/vue'
   ],
   devServer: {
-    open: process.platform === 'darwin',
-    host: '0.0.0.0',
-    port: 8080,
+    open: process.platform === 'oscar',
     https: {
-      key: fs.readFileSync('.ssl/key.pem'),
-      cert: fs.readFileSync('.ssl/cert.pem'),
+      key: fs.readFileSync('certs/copyKey.pem'),
+      cert: fs.readFileSync('certs/copyCert.pem'),
     },
     hotOnly: false,
   },
