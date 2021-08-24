@@ -14,11 +14,10 @@ module.exports = {
     '@coreui/vue'
   ],
   devServer: {
-    open: process.platform === 'darwin',
     https: {
-      key: fs.readFileSync('certs/copyKey.pem'),
-      cert: fs.readFileSync('certs/copyCert.pem'),
+        key: fs.readFileSync('./key/private.key'),
+        cert: fs.readFileSync('./key/private.crt'),
     },
-    hotOnly: false,
-  },
+    public: 'https://localhost:3500/'
+}
 }

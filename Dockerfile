@@ -1,17 +1,12 @@
-# build
-FROM node:15.4.0 as build-stage
-WORKDIR /app
+FROM node:12
+WORKDIR /usr/src/app
 COPY package*.json ./
 RUN npm install
+ARG VUE_APP_API_URL
+ENV VUE_APP_API_URL $VUE_APP_API_URL
+COPY key/private.crt /usr/src/app/private.crt
+COPY key/private.csr /usr/src/app/private.csr
+COPY key/private.key /usr/src/app/private.key
 COPY . .
 RUN npm run build
-
-COPY configs/nginx/conf.d/ /etc/nginx/conf.d/
-COPY configs/nginx/nginx.conf /etc/nginx/nginx.conf
-COPY configs/nginx/ssl/ /etc/nginx/ssl/
-RUN rm -rf /etc/nginx/conf.d/default.conf
-# production
-FROM nginx:1.13.12-alpine as production-stage
-COPY --from=build-stage /app/dist /usr/share/nginx/html
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["npm", "run", "start"]
