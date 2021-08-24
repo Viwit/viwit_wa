@@ -14,7 +14,7 @@ module.exports = {
     '@coreui/vue'
   ],
   devServer: {
-    open: process.platform === 'oscar',
+    open: process.platform === 'darwin',
     https: {
       key: fs.readFileSync('certs/copyKey.pem'),
       cert: fs.readFileSync('certs/copyCert.pem'),
