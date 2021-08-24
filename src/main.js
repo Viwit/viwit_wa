@@ -8,7 +8,7 @@ import CoreuiVue from '@coreui/vue'
 import { iconsSet as icons } from './assets/icons/icons.js'
 import store from './store'
 
-axios.defaults.baseURL = 'https://54.237.94.101:8000/'
+axios.defaults.baseURL = 'http://54.237.173.202:30152/'
 
 Vue.config.performance = true
 Vue.use(CoreuiVue)
