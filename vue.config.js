@@ -15,8 +15,8 @@ module.exports = {
   ],
   devServer: {
     https: {
-        key: fs.readFileSync('./key/copyKey.pem'),
-        cert: fs.readFileSync('./key/copyCert.pem'),
+        key: fs.readFileSync('./key/private.key'),
+        cert: fs.readFileSync('./key/private.crt'),
     },
     public: 'https://localhost:3500/'
 }
