@@ -10,7 +10,7 @@ import store from './store'
 
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
-axios.defaults.baseURL = 'http://54.237.94.101:8000/'
+axios.defaults.baseURL = 'http://54.173.192.193:3000/'
 
 Vue.config.performance = true
 Vue.use(CoreuiVue)
