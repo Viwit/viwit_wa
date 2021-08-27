@@ -12,8 +12,7 @@ export default {
     };
   },
   methods:{
-    login(){
-    
+    login(){    
       axios
         .post('graphql', {
           query:
@@ -36,6 +35,9 @@ export default {
               .catch((err) => {
                 console.log(err)
               });
+          }else{
+            const error = new Error('User not found');
+            throw error;
           }
         })
         .catch((err) => {

@@ -10,6 +10,7 @@
     </CSidebarBrand>
     <CRenderFunction flat :content-to-render="$options.nav"/>
     <CSidebarMinimizer
+    v-if="false"
       class="d-md-down-none"
       @click.native="$store.commit('set', ['sidebarMinimize', !minimize])"
     />

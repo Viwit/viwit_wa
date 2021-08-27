@@ -5,42 +5,42 @@
         <CCard class="mx-4 mb-0">
           <CCardBody class="p-4">
             <CForm>
-              <h1>Register</h1>
-              <p class="text-muted">Create your account</p>
-              <CInput placeholder="Firstname" autocomplete="Firstname" v-model="model.Firstname">
+              <h1>Registro</h1>
+              <p class="text-muted">Crea tu cuenta</p>
+              <CInput placeholder="Nombre" autocomplete="Firstname" v-model="model.Firstname">
                 <template #prepend-content>
                   <CIcon name="cil-user" />
                 </template>
               </CInput>
-              <CInput placeholder="Lastname" autocomplete="Lastname" v-model="model.Lastname">
+              <CInput placeholder="Apellido" autocomplete="Lastname" v-model="model.Lastname">
                 <template #prepend-content>
                   <CIcon name="cil-user" />
                 </template>
               </CInput>
               <CInput placeholder="Email" autocomplete="email" v-model="model.Email" prepend="@" />
-              <CInput placeholder="Password" type="password" autocomplete="new-password" v-model="model.Password">
+              <CInput placeholder="Contraseña" type="password" autocomplete="new-password" v-model="model.Password">
                 <template #prepend-content>
                   <CIcon name="cil-lock-locked" />
                 </template>
               </CInput>
-              <CInput placeholder="Repeat password" type="password" autocomplete="new-password" class="mb-4"
+              <CInput placeholder="Confirmar contraseña" type="password" autocomplete="new-password" class="mb-4"
                 v-model="model.Passwordconfirm">
                 <template #prepend-content>
                   <CIcon name="cil-lock-locked" />
                 </template>
               </CInput>
-              <CButton @click="postData" color="success" :disabled="!formFilled">Create Account</CButton>
+              <CButton @click="postData" color="success" :disabled="!formFilled">Crear cuenta</CButton>
             </CForm>
           </CCardBody>
           <CCardFooter class="p-4">
             <CRow>
               <CCol col="6">
-                <CButton block color="facebook">
+                <CButton disabled block color="facebook">
                   Facebook
                 </CButton>
               </CCol>
               <CCol col="6">
-                <CButton block color="twitter">
+                <CButton disabled block color="twitter">
                   Twitter
                 </CButton>
               </CCol>

@@ -6,17 +6,17 @@
           <CCard class="p-4">
             <CCardBody>
               <CForm>
-                <h1>Login</h1>
-                <p class="text-muted">Sign In to your account</p>
+                <h1>Iniciar Sesion</h1>
+                <p class="text-muted">Inicia sesion en tu cuenta</p>
                 <CInput
-                  placeholder="email"
+                  placeholder="Email"
                   autocomplete="username email"
                   v-model="model.email"
                 >
                   <template #prepend-content><CIcon name="cil-user"/></template>
                 </CInput>
                 <CInput
-                  placeholder="Password"
+                  placeholder="Contraseña"
                   type="password"
                   autocomplete="curent-password"
                   v-model="model.password"
@@ -25,11 +25,11 @@
                 </CInput>
                 <CRow>
                   <CCol col="6" class="text-left">
-                    <CButton @click="login" color="primary" class="px-4">Login</CButton>
+                    <CButton @click="login" color="primary" class="px-4">Iniciar Sesion</CButton>
                   </CCol>
                   <CCol col="6" class="text-right">
-                    <CButton color="link" class="px-0">Forgot password?</CButton>
-                    <CButton color="link" class="d-lg-none">Register now!</CButton>
+                    <CButton color="link" class="px-0">Olvidaste tu contraseña?</CButton>
+                    <CButton @click="register" color="link" class="d-lg-none">Registrate</CButton>
                   </CCol>
                 </CRow>
               </CForm>
@@ -40,7 +40,7 @@
             closeButton
             :show.sync="alert1"
           >
-            Email or password are wrong!
+            Email o contraseña incorrectos
           </CAlert>
             </CCardBody>
           </CCard>
@@ -51,15 +51,15 @@
             body-wrapper
           >
             <CCardBody>
-              <h2>Sign up</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              <h2>Registrate</h2>
+              <p>Registrate para iniciar sesion en Viwit</p>
               <CButton
                 @click="register"
                 color="light"
                 variant="outline"
                 size="lg"
               >
-                Register Now!
+                Registrate Ahora!
               </CButton>
             </CCardBody>
           </CCard>

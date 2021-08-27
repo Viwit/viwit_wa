@@ -1,5 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
+import axios from 'axios'
+import store from '../store'
 
 // Containers
 const TheContainer = () => import('@/containers/TheContainer');
@@ -81,7 +83,7 @@ const User = () => import('@/views/users/User');
 
 Vue.use(Router);
 
-export default new Router({
+const router = new Router({
   mode: 'hash', // https://router.vuejs.org/api/#mode
   linkActiveClass: 'active',
   scrollBehavior: () => ({ y: 0 }),
@@ -448,3 +450,27 @@ function configRoutes() {
     },
   ];
 }
+
+router.beforeEach((to, from, next) => {
+  if(to.fullPath == "/register" || to.fullPath == "/login"){
+    next()
+  }else{
+    axios
+      .post('graphql', {
+        query:
+          `mutation{put_token(id: ${store.state.user_id}, token: "${store.state.token}"){isValid }}`,
+      })
+      .then((res) => {
+        if(res.data.data.put_token.isValid){
+          next()
+        }else{
+          next('/login')
+        }
+      })
+      .catch((err) => {
+        console.log(err)
+      });
+  }
+})
+
+export default router;
