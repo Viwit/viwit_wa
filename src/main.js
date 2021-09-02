@@ -12,8 +12,13 @@ process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
 const host = process.env.HOST || 'localhost';
 const port = process.env.PORT || '3000'
+const proxy = process.env.PROXY
 
-axios.defaults.baseURL = `http://${host}:${port}/`
+if (proxy){
+  axios.defaults.baseURL = `http://${proxy}`
+}else{
+  axios.defaults.baseURL = `http://${host}:${port}/`
+}
 
 Vue.config.performance = true
 Vue.use(CoreuiVue)
