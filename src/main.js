@@ -10,15 +10,8 @@ import store from './store'
 
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
-const host = process.env.HOST || 'localhost';
-const port = process.env.PORT || '3000'
-const proxy = process.env.PROXY
-
-if (proxy){
-  axios.defaults.baseURL = `http://${proxy}`
-}else{
-  axios.defaults.baseURL = `http://${host}:${port}/`
-}
+axios.defaults.baseURL = `http://54.237.94.101:8000/` //Proxy 
+// axios.defaults.baseURL = `http://54.204.87.26:31491/graphql/`
 
 Vue.config.performance = true
 Vue.use(CoreuiVue)

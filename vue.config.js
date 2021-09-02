@@ -9,8 +9,5 @@ module.exports = {
       symlinks: false,
     },
   },
-  devServer: {
-    proxy: 'https://54.237.94.101:8000/',
-  },
   transpileDependencies: ['@coreui/utils', '@coreui/vue'],
 };
